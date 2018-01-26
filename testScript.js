@@ -1,7 +1,9 @@
 
 var elements = document.getElementsByTagName('*');
+
 // https://stackoverflow.com/questions/7168362/run-script-each-time-chrome-extension-icon-clicked
 // https://www.bennadel.com/blog/55-using-methods-in-javascript-replace-method.htm
+
 for (var i = 0; i < elements.length; i++) {
     var element = elements[i];
 
