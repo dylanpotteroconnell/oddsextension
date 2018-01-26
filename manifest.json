@@ -4,14 +4,15 @@
   "name": "Getting started example",
   "description": "This extension allows the user to change the background color of the current page.",
   "version": "1.0",
+  "background" : {
+    "scripts" : ["background.js"]
+  },
 
   "browser_action": {
     "default_icon": "icon.png",
-    "default_popup": "popup.html",
-    "default_title": "Click here!"
+    "default_title": "Convert Odds"
   },
   "permissions": [
-    "activeTab",
-    "storage"
+    "activeTab"
   ]
 }
