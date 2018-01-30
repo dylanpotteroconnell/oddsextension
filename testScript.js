@@ -11,7 +11,7 @@ for (var i = 0; i < elements.length; i++) {
         var node = element.childNodes[j];
 
         if (node.nodeType === 3) {
-            var pattern = /([+|-])([0-9][0-9][0-9])([^0-9])/gi;
+            var pattern = /([+|-])([0-9]+)([^0-9]?)/gi;
             var text = node.nodeValue;
             var replacedText = text.replace(pattern, 
                                             function(fm,$1,$2,$3)
