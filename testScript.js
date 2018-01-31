@@ -13,19 +13,36 @@ for (var i = 0; i < elements.length; i++) {
         if (node.nodeType === 3) {
             var pattern = /([+|-])([0-9]+)([^0-9]?)/gi;
             var text = node.nodeValue;
+            var textRev = node.nodeValue;
             var replacedText = text.replace(pattern, 
                                             function(fm,$1,$2,$3)
                                             {
                                               if ($1=="+")
                                               {
-                                                return(String(Math.round(100.0/(100.0+parseInt($2))*1000)/10.0)+"\%"+$3)
+                                                return("|"+String(Math.round(100.0/(100.0+parseInt($2))*1000)/10.0)+"\%"+"|"+$3)
                                               } else
                                               {
-                                                return(String(Math.round(parseInt($2)/(100.0+parseInt($2))*1000)/10.0)+"\%"+$3)
+                                                return("|"+String(Math.round(parseInt($2)/(100.0+parseInt($2))*1000)/10.0)
+                                                         +"\%"+"|"+$3)
                                               }
                                             });
+            var patternRev = /\|([0-9][0-9]\.?[0-9]?)%\|/gi;
+            var replacedTextRev = textRev.replace(patternRev,
+                                                  function(fm,$1)
+                                                  {
+                                                    var impprob = parseFloat($1)/100.0;
+                                                    if (impprob > .5)
+                                                    {
+                                                      return("-"+String(Math.round(100.0*impprob/(1-impprob))))
+                                                    } else
+                                                    {   
+                                                      return("+"+String(Math.round(100.0/impprob - 100)))
+                                                    }
+                                            });                   
 
-            if (replacedText !== text) {
+            if (replacedTextRev !== textRev) {
+                element.replaceChild(document.createTextNode(replacedTextRev), node);
+            } else if (replacedText !== text) {
                 element.replaceChild(document.createTextNode(replacedText), node);
             }
         }
