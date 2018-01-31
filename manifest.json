@@ -5,7 +5,7 @@
   "description": "Click this icon to convert moneyline odds into implied probability, and vice versa.",
   "version": "1.0",
   "background" : {
-    "scripts" : ["background.js"]
+    "scripts" : ["background.js", "rightclick.js"]
   },
   "icons": { "16": "icon16.png",
              "48": "icon48.png",
@@ -16,6 +16,7 @@
     "default_title": "Convert Odds"
   },
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "contextMenus"
   ]
 }
