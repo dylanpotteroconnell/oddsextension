@@ -16,7 +16,7 @@ function openConverter(selectedText) {
   chrome.tabs.create({ url: serviceCall });
 }
 var tx = getSelection();
-var title = "Test '" + tx + "' title";
+var title = "Convert: '" + tx + "' title";
 // %s bit goes here
 var id = chrome.contextMenus.create({
     title: "Convert Odds?", 
