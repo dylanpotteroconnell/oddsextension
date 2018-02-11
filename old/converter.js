@@ -1,15 +1,3 @@
-document.addEventListener("DOMContentLoaded", function(event) {
-  document.getElementById("ml").addEventListener("keyup", function() {
-        convML(document.getElementById('ml'));
-     });
-  document.getElementById("frac").addEventListener("keyup", function() {
-        convFrac(document.getElementById('frac'));
-     });
-  document.getElementById("ip").addEventListener("keyup", function() {
-        convIP(document.getElementById('ip'));
-     });
-});
-
 function convML(obj) {
   if(/^[\+|-] ?[0-9]+$/.test(obj.value)){
     var pattern = /([+|-]) ?([0-9]+)/;
