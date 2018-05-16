@@ -32,8 +32,6 @@ function convML(obj) {
 
 function convFrac(obj) {
   document.getElementById('ip').value = obj.value;
-// Add decimals
-
   if(/^[0-9]+\.?[0-9]*\/[0-9]+\.?[0-9]*$/.test(obj.value)){
     var pattern = /([0-9]+\.?[0-9]*)\/([0-9]+\.?[0-9]*)/;
     var newIP  = obj.value.replace(pattern,

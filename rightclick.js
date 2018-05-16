@@ -12,8 +12,11 @@ function getSelection(callback) {
   });
 
 function openConverter(selectedText) {
-  var serviceCall = 'converter.html' 
-  chrome.tabs.create({ url: serviceCall });
+  var serviceCall = 'converter.html'; 
+  chrome.tabs.create({url: serviceCall}, function (tab) {
+    var c = "document.getElementById('ip').value = 'abc';"
+    chrome.tabs.executeScript(tab.id, {code: c});
+   });
 }
 var tx = getSelection();
 var title = "Convert: '" + tx + "' title";
