@@ -22,7 +22,7 @@ var tx = getSelection();
 var title = "Convert: '" + tx + "' title";
 // %s bit goes here
 var id = chrome.contextMenus.create({
-    title: "Convert Odds?", 
+    title: "Open Odds Converter", 
     contexts:["selection"], 
     onclick: function(info, tab) {
         openConverter(info.selectionText);
