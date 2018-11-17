@@ -16,7 +16,7 @@ for (var i = 0; i < elements.length; i++) {
 // 1. Moneyline -> Implied Probability
             var text = node.nodeValue;
 // Finds patterns of +X or -X, where X is decimal number.
-            var pattern = /([+|-])([0-9]+)([^0-9]?)/gi;
+            var pattern = /([+|-])([0-9][0-9][0-9]+)([^0-9]?)/gi;
 // Replaces it with the form |X%|, where X has one digit of decimal
             var replacedText = text.replace(pattern, 
                                             function(fm,$1,$2,$3)
@@ -32,7 +32,7 @@ for (var i = 0; i < elements.length; i++) {
                                             });
 // 2. Implied Probability -> Moneyline
             var textRev = node.nodeValue;
-            var patternRev = /\|([0-9][0-9]\.?[0-9]?)%\|/gi;
+            var patternRev = /\|([0-9][0-9]?\.?[0-9]?)%\|/gi;
 // Finds patterns of our own created implied probabilities, |X%|
             var replacedTextRev = textRev.replace(patternRev,
                                                   function(fm,$1)
