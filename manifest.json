@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
 
   "name": "Odds Converter",
   "description": "Click this icon to convert moneyline odds into implied probability, and vice versa.",
